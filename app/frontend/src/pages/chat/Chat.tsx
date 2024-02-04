@@ -337,7 +337,7 @@ const Chat = () => {
                     <div className={styles.chatInput}>
                         <QuestionInput
                             clearOnSend
-                            placeholder="Type a new question (e.g. what does Jack think is important for success?)"
+                            placeholder="Type a new question (e.g. what does Jack Ma think is important for success?)"
                             disabled={isLoading}
                             onSend={question => makeApiRequest(question)}
                         />
