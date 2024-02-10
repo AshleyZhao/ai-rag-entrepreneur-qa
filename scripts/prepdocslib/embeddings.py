@@ -24,10 +24,10 @@ class EmbeddingBatch:
     def __init__(self, texts: List[str], token_length: int):
         self.texts = texts
         self.token_length = token_length
-        with open('batch.txt', 'a') as file:
-             new_texts = ' '.join(texts)
-             file.write("Text:" + new_texts + "\nToken Length: " + str(token_length) + "Text123\n")
-        print('---')
+        # with open('batch.txt', 'a') as file:
+        #      new_texts = ' '.join(texts)
+        #      file.write("Text:" + new_texts + "\nToken Length: " + str(token_length) + "Text123\n")
+        # print('---')
 
 
 class OpenAIEmbeddings(ABC):
