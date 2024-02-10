@@ -25,7 +25,9 @@ class Page:
         self.page_num = page_num
         self.offset = offset
         self.text = text
-
+        # with open('chunk.txt', 'a') as file:
+        #     file.write(text + "Text123\n")
+        # print('---')
 
 class PdfParser(ABC):
     """

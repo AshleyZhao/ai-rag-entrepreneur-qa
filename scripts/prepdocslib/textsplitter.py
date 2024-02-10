@@ -1,6 +1,7 @@
 from typing import Generator, List
 
 from .pdfparser import Page
+from langdetect import detect, DetectorFactory 
 
 
 class SplitPage:
@@ -20,8 +21,8 @@ class TextSplitter:
 
     def __init__(self, has_image_embeddings: bool, verbose: bool = False):
         self.sentence_endings = [".", "!", "?"]
-        self.word_breaks = [",", ";", ":", " ", "(", ")", "[", "]", "{", "}", "\t", "\n"]
-        self.max_section_length = 400 # Ashley - Used be 1000
+        self.word_breaks = [",", ";", ":", " ", "(", ")", "[", "]", "{", "}", "\t", "\n", "，", "。", "？", "！", "；", "（", "）", "「", "」"]
+        self.max_section_length = 1000 # Ashley - Used be 1000
         self.sentence_search_limit = 100
         self.section_overlap = 100
         self.verbose = verbose
@@ -41,6 +42,18 @@ class TextSplitter:
             return pages[num_pages - 1].page_num
 
         all_text = "".join(page.text for page in pages)
+
+        #determine language and modify presets
+        DetectorFactory.seed = 0
+        if detect(all_text) == 'zh-cn':
+            self.max_section_length = 250
+            self.sentence_search_limit = 25
+            self.section_overlap = 25
+        else:
+            self.max_section_length = 1000
+            self.sentence_search_limit = 100
+            self.section_overlap = 100
+        #mod ends here
         if len(all_text.strip()) == 0:
             return
 
