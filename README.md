@@ -4,6 +4,7 @@ This online chatbot can answer questions from the perspectives of established en
 
 <img width="1051" alt="image" src="https://github.com/AshleyZhao/azure-search-openai-demo/assets/22757766/649f922e-d130-40a7-b32f-afd7a3733552">
 
+## What's new?
 
 | Features | Description |
 | -- | -- |
