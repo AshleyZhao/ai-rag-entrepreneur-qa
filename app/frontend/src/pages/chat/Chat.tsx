@@ -127,10 +127,12 @@ const Chat = () => {
         const targetLang1: string = "zh-CN";
         const targetLang2: string = "en";
 
-        const url: string =
-            `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang1}&dt=t&q=${encodeURIComponent(sourceText)}`;
-        const url2: string =
-            `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang2}&dt=t&q=${encodeURIComponent(sourceText)}`;
+        const url: string = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang1}&dt=t&q=${encodeURIComponent(
+            sourceText
+        )}`;
+        const url2: string = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang2}&dt=t&q=${encodeURIComponent(
+            sourceText
+        )}`;
 
         try {
             const response: Response = await fetch(url);
