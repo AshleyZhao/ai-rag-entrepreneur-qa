@@ -1,4 +1,4 @@
-# OpenAI chatbot for Q&A with entrepreneurs
+🤖 # OpenAI chatbot for Q&A with entrepreneurs
 
 This online chatbot can answer questions from the perspectives of established entrepreneurs, in the format of "What does Elon Musk think about AI?". The answers are based on transcripts of interviews with the subject. 
 
