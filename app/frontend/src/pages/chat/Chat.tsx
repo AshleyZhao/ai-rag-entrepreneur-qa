@@ -169,7 +169,7 @@ const Chat = () => {
             ]);
 
             const request: ChatAppRequest = {
-                messages: [...messages, { content: question, role: "user" }],
+                messages: [...messages, { content: translatedQuestion, role: "user" }],
                 stream: shouldStream,
                 context: {
                     overrides: {
