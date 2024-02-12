@@ -4,8 +4,8 @@ import styles from "./Example.module.css";
 
 const DEFAULT_EXAMPLES: string[] = [
     "What does Elon Musk think about human spaceflight?",
-    "What does Jack Ma think about financial technology?",
-    "马云对青年企业家有什么建议？"
+    "What does Jack Ma think drove the success of Alibaba?",
+    "马云对创新有什么看法？"
 ];
 
 const GPT4V_EXAMPLES: string[] = [
