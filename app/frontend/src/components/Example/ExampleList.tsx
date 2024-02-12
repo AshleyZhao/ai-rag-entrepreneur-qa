@@ -3,7 +3,7 @@ import { Example } from "./Example";
 import styles from "./Example.module.css";
 
 const DEFAULT_EXAMPLES: string[] = [
-    "How did Jack Ma found Alibaba?",
+    "What does Elon Musk think about human spaceflight?",
     "What does Jack Ma think about financial technology?",
     "马云对青年企业家有什么建议？"
 ];
