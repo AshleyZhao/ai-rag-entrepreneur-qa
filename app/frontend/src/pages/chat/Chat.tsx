@@ -142,6 +142,7 @@ const Chat = () => {
             const data2: any[][][] = await response2.json();
 
             return data[0][0][0] + " " + data2[0][0][0]; // Extract the translated text from the response and return
+
         } catch (error) {
             console.error(error);
             throw error; // Re-throw the error to propagate it
@@ -153,7 +154,7 @@ const Chat = () => {
         const translatedQuestion = await translate(question);
         console.log(translatedQuestion);
 
-        lastQuestionRef.current = translatedQuestion; // Turn this back into translatedQuestion
+        lastQuestionRef.current = question; // Turn this back into translatedQuestion
 
         error && setError(undefined);
         setIsLoading(true);
@@ -169,7 +170,7 @@ const Chat = () => {
             ]);
 
             const request: ChatAppRequest = {
-                messages: [...messages, { content: question, role: "user" }],
+                messages: [...messages, { content: translatedQuestion, role: "user" }],
                 stream: shouldStream,
                 context: {
                     overrides: {
