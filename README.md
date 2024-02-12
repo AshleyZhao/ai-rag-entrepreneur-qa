@@ -9,7 +9,7 @@ This online chatbot can answer questions from the perspectives of established en
 
 | Features | Description |
 | -- | -- |
-| Bilingual support | Can understand questions in both English and Chinese and answer respectively. |
+| Bilingual support | Can understand questions in both English and Chinese. |
 
 ## Endpoint
 
