@@ -153,7 +153,7 @@ const Chat = () => {
         const translatedQuestion = await translate(question);
         console.log(translatedQuestion);
 
-        lastQuestionRef.current = translatedQuestion; // Turn this back into translatedQuestion
+        lastQuestionRef.current = question; // Turn this back into translatedQuestion
 
         error && setError(undefined);
         setIsLoading(true);
