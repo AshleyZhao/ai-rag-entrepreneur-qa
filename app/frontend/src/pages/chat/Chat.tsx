@@ -122,39 +122,38 @@ const Chat = () => {
     const client = useLogin ? useMsal().instance : undefined;
 
     // Ashley - added translate function
-    // async function translate(sourceText: string): Promise<string> {
-    //     const sourceLang: string = "auto";
-    //     const targetLang1: string = "zh-CN";
-    //     const targetLang2: string = "en";
+    async function translate(sourceText: string): Promise<string> {
+        const sourceLang: string = "auto";
+        const targetLang1: string = "zh-CN";
+        const targetLang2: string = "en";
 
-    //     const url: string = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang1}&dt=t&q=${encodeURIComponent(
-    //         sourceText
-    //     )}`;
-    //     const url2: string = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang2}&dt=t&q=${encodeURIComponent(
-    //         sourceText
-    //     )}`;
+        const url: string = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang1}&dt=t&q=${encodeURIComponent(
+            sourceText
+        )}`;
+        const url2: string = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang2}&dt=t&q=${encodeURIComponent(
+            sourceText
+        )}`;
 
-    //     try {
-    //         const response: Response = await fetch(url);
-    //         const response2: Response = await fetch(url2);
+        try {
+            const response: Response = await fetch(url);
+            const response2: Response = await fetch(url2);
 
-    //         const data: any[][][] = await response.json();
-    //         const data2: any[][][] = await response2.json();
+            const data: any[][][] = await response.json();
+            const data2: any[][][] = await response2.json();
 
-    //         return data[0][0][0] + " " + data2[0][0][0]; // Extract the translated text from the response and return
-
-    //     } catch (error) {
-    //         console.error(error);
-    //         throw error; // Re-throw the error to propagate it
-    //     }
-    // }
+            return data[0][0][0] + " " + data2[0][0][0]; // Extract the translated text from the response and return
+        } catch (error) {
+            console.error(error);
+            throw error; // Re-throw the error to propagate it
+        }
+    }
     // Ashley - end translate function
 
     const makeApiRequest = async (question: string) => {
-        // const translatedQuestion = await translate(question);
-        // console.log(translatedQuestion);
+        const translatedQuestion = await translate(question);
+        console.log(translatedQuestion);
 
-        lastQuestionRef.current = question; // Turn this back into translatedQuestion
+        lastQuestionRef.current = translatedQuestion; // Turn this back into translatedQuestion
 
         error && setError(undefined);
         setIsLoading(true);
@@ -303,7 +302,9 @@ const Chat = () => {
                         <div className={styles.chatEmptyState}>
                             <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
                             <h1 className={styles.chatEmptyStateTitle}>Ask An Entrepreneur!</h1>
-                            <h2 className={styles.chatEmptyStateSubtitle}>Currently we've loaded interview transcripts from Jack Ma and Elon Musk. Ask anything or try an example.</h2>
+                            <h2 className={styles.chatEmptyStateSubtitle}>
+                                Currently we've loaded interview transcripts from Jack Ma and Elon Musk. Ask anything or try an example.
+                            </h2>
                             <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />
                         </div>
                     ) : (
